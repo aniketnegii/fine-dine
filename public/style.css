@@ -1,0 +1,58 @@
+* {
+  scroll-behavior: smooth;
+}
+
+.bg-color {
+  background-color: #f45252;
+}
+
+.g-padding {
+  padding-bottom: 3%;
+}
+
+.gotop {
+  position: fixed;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  background-color: #f45252;
+  bottom: 40px;
+  right: 50px;
+  text-decoration: none;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  animation: mymove 5s infinite;
+  padding: 10px;
+}
+
+@keyframes mymove {
+  from {
+    top: 80%;
+  }
+  to {
+    top: 90%;
+  }
+}
+
+.alert {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.error {
+  background-color: red;
+}
+
+.success {
+  background-color: #f45252;
+}
+
+@media (max-width: 767px) {
+  .gotop {
+    display: none;
+  }
+}
