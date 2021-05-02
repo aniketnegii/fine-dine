@@ -31,6 +31,14 @@ document.getElementById('submit').addEventListener("click",function(e){
       // Error alert
       showAlert("Please fill all the details.", "error");
     } else {
+      $.get("https://myeasyapi.herokuapp.com/register/send_otp", 
+      { "email":email,
+        "message": "Name: "+name+"<br>"+"Message: "+message 
+    }, 
+    function(data, status){
+       if(status=="success"){ 
+         otp_from_back = data; 
+         document.getElementById("otp_div").style.display='block'; } } ); 
         showAlert("Your email has been sent.", "success");
     }
     e.preventDefault();
