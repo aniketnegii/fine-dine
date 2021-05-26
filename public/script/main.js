@@ -16,15 +16,14 @@ function showAlert(message, className) {
     setTimeout(function(){
       document.querySelector('.alert').remove();
     }, 3000);
+
 }
-
-
 
 document.getElementById('submit').addEventListener("click",function(e){
 
     const name = document.getElementById('name').value,
-          email = document.getElementById('email').value,
-          message = document.getElementById('message').value
+        email = document.getElementById('email').value,
+        message = document.getElementById('message').value
   
     // Validate
     if(name === '' || email === '' || message === '') {
@@ -32,14 +31,17 @@ document.getElementById('submit').addEventListener("click",function(e){
       showAlert("Please fill all the details.", "error");
     } else {
       $.get("https://myeasyapi.herokuapp.com/register/send_otp", 
-      { "email":email,
-        "message": "Name: "+name+"<br>"+"Message: "+message 
+      { "email": "guptamansi200@gmail.com" ,
+        "name" : name,
+        "message": "Name: "+name+"<br>"+"Message: "+message,
+        "subject":"Message from FINE-DINE", 
     }, 
     function(data, status){
-       if(status=="success"){ 
-         otp_from_back = data; 
-         document.getElementById("otp_div").style.display='block'; } } ); 
+       if(status=="success"){  
         showAlert("Your email has been sent.", "success");
+        document.getElementById('name').value ="";
+        document.getElementById('email').value="";
+        document.getElementById('message').value=""; } } ); 
     }
     e.preventDefault();
 })
